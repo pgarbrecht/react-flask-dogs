@@ -14,6 +14,7 @@ from playhouse.shortcuts import model_to_dict
 #second arg is its import_name
 dogs = Blueprint('dogs', 'dogs')
 
+#index route
 @dogs.route('/', methods=['GET'])
 def dogs_index():
     all_dogs = models.Dog.select()
@@ -26,7 +27,7 @@ def dogs_index():
     for dog in all_dogs:
         dog_dict = model_to_dict(dog)
         dog_dicts.append(dog_dict)
-        
+
     return jsonify({
         'data': dog_dicts,
         'message': f"Successfully found {len(dog_dicts)} dogs",
@@ -54,3 +55,14 @@ def create_dogs():
         message='Successfully created dog!',
         status=201
     ), 201
+
+# Show route
+@dogs.route('/<id>', methods=['GET'])
+def get_one_dog(id):
+    dog = models.Dog.get_by_id(id)
+    print(dog)
+    return jsonify(
+        data= model_to_dict(dog),
+        message = 'Success!',
+        status = 200
+    ), 200

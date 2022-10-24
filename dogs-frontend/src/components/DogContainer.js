@@ -5,12 +5,12 @@ import DogList from './DogList'
 class DogContainer extends Component {
     render() {
         return(
-            <>
-            <h2>Dog Container</h2>
-            <DogList
-            
-            />
-            </>
+                <>
+                <h2>Dog Container</h2>
+                <DogList
+                    
+                />  
+                </>
         )
     }
 }

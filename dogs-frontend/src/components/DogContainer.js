@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import '../index.css'
+import DogList from './DogList'
 
 class DogContainer extends Component {
     render() {
         return(
-            <h1>Dog Container</h1>
+            <>
+            <h2>Dog Container</h2>
+            <DogList
+            
+            />
+            </>
         )
     }
 }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {Component} from 'react'
 import DogContainer from './components/DogContainer'
@@ -12,6 +11,13 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      dogs: [{
+        name: "",
+        age: 0,
+        breed: ""
+      }]
+    }
   }
 
   render(){

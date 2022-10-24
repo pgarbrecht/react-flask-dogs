@@ -22,4 +22,6 @@ def create_dogs():
     #this is like req.body in express
     payload = request.get_json() 
     print(payload)
+    new_dog = models.Dog.create(name=payload['name'], age=payload['age'], breed=payload['breed'])
+    print(new_dog)
     return "you hit the create route -- check terminal"

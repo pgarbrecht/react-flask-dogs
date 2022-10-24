@@ -10,6 +10,15 @@ from resources.dogs import dogs
 # import all variables and methods from models.py file
 import models
 
+#will allow cross-domain requests
+#this app is localhost:8000 for the origin
+#our react app for how will be localhost:3000 (different origin)
+from flask_cors import CORS
+#first arg -- ad cors to blueprint we want it on
+#second arg -- which origins are allowed (list with local and deployed front ends)
+# third arg -- lets us accept requests with cookies attached (so that we use sessions for auth)
+CORS(dogs, origins=['http://localhost:3000'], supports_credentials=True)
+
 # will show error messages
 DEBUG=True 
 

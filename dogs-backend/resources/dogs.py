@@ -19,7 +19,19 @@ def dogs_index():
     all_dogs = models.Dog.select()
     print('result of dog select query')
     print(all_dogs)
-    return "check your terminal"
+    #we need a list of dictionaries
+    #use a loop to populate the list
+    # convert each model to a dict using model_to_dict
+    dog_dicts = []
+    for dog in all_dogs:
+        dog_dict = model_to_dict(dog)
+        dog_dicts.append(dog_dict)
+        
+    return jsonify({
+        'data': dog_dicts,
+        'message': f"Successfully found {len(dog_dicts)} dogs",
+        'status': 200
+    }), 200
 
 # dog create route
 @dogs.route('/', methods=['POST'])

@@ -16,7 +16,10 @@ dogs = Blueprint('dogs', 'dogs')
 
 @dogs.route('/', methods=['GET'])
 def dogs_index():
-    return "dogs resource working"
+    all_dogs = models.Dog.select()
+    print('result of dog select query')
+    print(all_dogs)
+    return "check your terminal"
 
 # dog create route
 @dogs.route('/', methods=['POST'])

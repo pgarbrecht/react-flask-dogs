@@ -24,16 +24,12 @@ class App extends Component {
   }
 
   getDogs = () => {
-    console.log('getDogs function reached');
-    console.log("here is baseURL", baseURL);
     fetch(baseURL)
     .then((res) => {
         if (res.status === 200) {
             return res.json();
-            console.log('res status was 200');
         } else {
             return [];
-            console.log('res status was not 200')
         }
     })
     .then((data) => {    
@@ -41,7 +37,7 @@ class App extends Component {
         console.log(data);
         this.setState({
             // grabbing data from db and updating state when components mount
-            dogs: data
+            dogs: data.data
         })        
     });
 }
@@ -49,8 +45,6 @@ class App extends Component {
   //runs when component mounts
   componentDidMount() {
   this.getDogs();
-  console.log('app component mounted');
-  console.log('here is state after mount: ', this.state)
   }
 
   render(){

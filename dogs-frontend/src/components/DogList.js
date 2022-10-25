@@ -4,7 +4,11 @@ import '../index.css'
 class DogList extends Component {
     render() {
         return(
-            <h3>Dog List</h3>
+            <div className="dog">
+            <h3>{this.props.name}</h3>
+            <h4>{this.props.age} years old</h4>
+            <h5>{this.props.breed}</h5>
+            </div>
         )
     }
 }

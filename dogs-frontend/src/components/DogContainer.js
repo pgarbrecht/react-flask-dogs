@@ -5,12 +5,19 @@ import DogList from './DogList'
 class DogContainer extends Component {
     render() {
         return(
-                <>
-                <h2>Dog Container</h2>
-                <DogList
-                    
-                />  
-                </>
+                <div>
+                <h2 className="doggies-section">Doggies</h2>
+                {this.props.dogs.map((dog, index) => {
+                    return(
+                        <DogList
+                        key={index}
+                        name={dog.name}
+                        age={dog.age}
+                        breed={dog.breed}  
+                        />  
+                    )
+                })}
+                </div>
         )
     }
 }

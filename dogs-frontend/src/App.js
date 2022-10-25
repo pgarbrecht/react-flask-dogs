@@ -1,6 +1,7 @@
 import './App.css';
 import React, {Component} from 'react'
 import DogContainer from './components/DogContainer'
+import DogNewForm from './components/DogNewForm'
 
 import {
   BrowserRouter as Router,
@@ -50,7 +51,7 @@ class App extends Component {
   render(){
   return (
     <>
-    <h1>app page</h1>
+    <h1>React + Flask Dogs App</h1>
     <Router>
         <Routes>
             <Route 
@@ -58,6 +59,10 @@ class App extends Component {
                 element={<DogContainer
                   dogs={this.state.dogs} 
                 />}
+            />
+            <Route 
+                path='/new'
+                element={<DogNewForm />}
             />
         </Routes>
     </Router>

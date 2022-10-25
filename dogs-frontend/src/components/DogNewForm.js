@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../index.css'
+import BackBtn from './BackBtn'
 
 class DogNewForm extends Component {
     constructor(props) {
@@ -56,6 +57,7 @@ class DogNewForm extends Component {
         return(
                 <div className="newform">
                     <h1>Add a Dog</h1>
+                    <BackBtn/>
                     <form onSubmit={this.handleSubmit}>
                         <input
                             id='name'

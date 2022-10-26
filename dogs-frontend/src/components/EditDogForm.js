@@ -8,12 +8,10 @@ class EditDogForm extends Component {
     }
 
     render () {
-        const dogId = window.location.search.slice(4);
-        console.log(dogId)
         return (
             <>
                 <h2>Edit Your Doggie</h2>
-                <form onSubmit={this.props.handleEditDog} >
+                <form onSubmit={this.props.updateDog} >
                 <input
                     id='name'
                     type='text'

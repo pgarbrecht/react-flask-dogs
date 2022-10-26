@@ -14,12 +14,10 @@ class DogContainer extends Component {
     }
 
     editDog = (id) => {
-        console.log('editDog is: ',id)
+        // console.log('editDog is: ',id)
 
         let dogToEdit = this.props.dogs.find(dog => dog.id === id)
 
-        console.log('dogToEdit: ',dogToEdit)
-        console.log('this.state is: ',this.state)
         this.setState({ 
             dogCurrentlyBeingEdited: dogToEdit
         })
@@ -40,6 +38,29 @@ class DogContainer extends Component {
             }
         })
         console.log(this.state.dogCurrentlyBeingEdited)
+    }
+
+    updateDog = () => {
+        fetch(`${this.props.baseURL}${this.state.idOfDogToEdit}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                name: this.state.dogCurrentlyBeingEdited.name,
+                age: this.state.dogCurrentlyBeingEdited.age,
+                breed: this.state.dogCurrentlyBeingEdited.breed
+            }),
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        })
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            } throw new Error(res)
+        })
+        .then(resJson => {
+            window.location.href='http://localhost:3000/';
+        })
+        .catch(err => (console.log(err))) 
     }
 
     render() {
@@ -71,6 +92,7 @@ class DogContainer extends Component {
                 idOfDogToEdit = {this.state.idOfDogToEdit}
                 dogCurrentlyBeingEdited = {this.state.dogCurrentlyBeingEdited}
                 handleEditChange = {this.handleEditChange}
+                updateDog = {this.updateDog}
                 />
             )
         }

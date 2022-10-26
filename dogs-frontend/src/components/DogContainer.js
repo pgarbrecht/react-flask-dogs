@@ -32,8 +32,14 @@ class DogContainer extends Component {
     }
 
     handleEditChange = (e) => {
+        // this.setState({
+        //     dogCurrentlyBeingEdited: {
+        //         [e.target.id]: e.target.value
+        //     }
+        // })
         this.setState({
             dogCurrentlyBeingEdited: {
+                ...this.state.dogCurrentlyBeingEdited,
                 [e.target.id]: e.target.value
             }
         })

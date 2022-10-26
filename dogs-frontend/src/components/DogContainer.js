@@ -19,6 +19,7 @@ class DogContainer extends Component {
                         breed={dog.breed}
                         id={dog.id}  
                         handleEditDog = {this.props.handleEditDog}
+                        editDog={this.props.editDog} 
                         dogToEdit={this.props.dogToEdit} 
                         handleDeleteDog = {this.props.handleDeleteDog}
                         />  

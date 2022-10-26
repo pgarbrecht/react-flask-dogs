@@ -23,6 +23,7 @@ class App extends Component {
         breed: ""
       }],
       dogToEdit: {
+        id: -1,
         name: "placeholder",
         age: 0,
         breed: "placeholder"
@@ -54,6 +55,10 @@ class App extends Component {
     method: 'DELETE'
     }).then(
       window.location.href='http://localhost:3000/')
+  }
+
+  editDog = (id) => {
+    console.log(id)
   }
 
   handleEditDog = (id) => {
@@ -97,6 +102,7 @@ class App extends Component {
                 path='/'
                 element={<DogContainer
                   dogs={this.state.dogs} 
+                  editDog={this.editDog}
                   dogToEdit={this.state.dogToEdit} 
                   handleDeleteDog={this.handleDeleteDog} />}
             />
@@ -107,6 +113,7 @@ class App extends Component {
             <Route 
                 path='/edit'
                 element={<EditDog 
+                  dogs={this.state.dogs} 
                   dogToEdit={this.state.dogToEdit} 
                   handleEditDog={this.handleEditDog} />}
             />

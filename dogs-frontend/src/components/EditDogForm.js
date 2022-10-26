@@ -6,9 +6,9 @@ class EditDogForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // name: this.props.exerciseToEdit.name,
-            // age: this.props.exerciseToEdit.description,
-            // breed: this.props.exerciseToEdit.exerciseImage
+            name: this.props.dogToEdit.name,
+            age: this.props.dogToEdit.age,
+            breed: this.props.dogToEdit.breed
         }
     }
 
@@ -17,30 +17,6 @@ class EditDogForm extends Component {
                 [e.target.id]: e.target.value
             })
         }
-
-    // handleEditDog = (e) => {
-    //     e.preventDefault()
-    //     fetch(`${process.env.REACT_APP_BACKEND_URL}/${this.props.exerciseToEdit.id}`, {
-    //         method: 'PUT',
-    //         body: JSON.stringify({
-    //             name: this.state.name,
-    //             age: this.state.age,
-    //             breed: this.state.breed
-    //         }),
-    //         headers: {
-    //             'Content-Type' : 'application/json'
-    //         }
-    //     })
-    //     .then(res => {
-    //         if (res.ok) {
-    //             return res.json()
-    //         } throw new Error(res)
-    //     })
-    //     .then(resJson => {
-    //         window.location.href='http://localhost:3000/';
-    //     })
-    //     .catch(err => (console.log(err))) 
-    // }
 
     render () {
         return (

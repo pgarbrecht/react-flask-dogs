@@ -23,9 +23,9 @@ class App extends Component {
         breed: ""
       }],
       dogToEdit: {
-        name: "",
+        name: "placeholder",
         age: 0,
-        breed: ""
+        breed: "placeholder"
       }
     }
   }
@@ -56,34 +56,29 @@ class App extends Component {
       window.location.href='http://localhost:3000/')
   }
 
-  // handleEditDog = (e, dog) => {
-  //   e.preventDefault()
-  //   console.log('hitting handleEditDog in App.js!')
-  //   console.log(dog)
-  // }
-
   handleEditDog = (id) => {
+    console.log('edit dog function reached')
     // e.preventDefault()
-    fetch(`${baseURL}${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-            name: this.state.dogToEdit.name,
-            age: this.state.dogToEdit.age,
-            breed: this.state.dogToEdit.breed
-        }),
-        headers: {
-            'Content-Type' : 'application/json'
-        }
-    })
-    .then(res => {
-        if (res.ok) {
-            return res.json()
-        } throw new Error(res)
-    })
-    .then(resJson => {
-        window.location.href='http://localhost:3000/';
-    })
-    .catch(err => (console.log(err))) 
+    // fetch(`${baseURL}${id}`, {
+    //     method: 'PUT',
+    //     body: JSON.stringify({
+    //         name: this.state.dogToEdit.name,
+    //         age: this.state.dogToEdit.age,
+    //         breed: this.state.dogToEdit.breed
+    //     }),
+    //     headers: {
+    //         'Content-Type' : 'application/json'
+    //     }
+    // })
+    // .then(res => {
+    //     if (res.ok) {
+    //         return res.json()
+    //     } throw new Error(res)
+    // })
+    // .then(resJson => {
+    //     window.location.href='http://localhost:3000/';
+    // })
+    // .catch(err => (console.log(err))) 
   }
 
   //runs when component mounts
@@ -102,7 +97,6 @@ class App extends Component {
                 path='/'
                 element={<DogContainer
                   dogs={this.state.dogs} 
-                  handleEditDog={this.handleEditDog}
                   handleDeleteDog={this.handleDeleteDog} />}
             />
             <Route 
@@ -112,6 +106,7 @@ class App extends Component {
             <Route 
                 path='/edit'
                 element={<EditDog 
+                dogToEdit={this.state.dogToEdit} 
                 handleEditDog={this.handleEditDog} />}
             />
         </Routes>

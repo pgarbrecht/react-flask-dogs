@@ -15,6 +15,8 @@ class EditDog extends Component {
                     Edit the Dog
                 </h1>
                 <EditDogForm 
+                dogToEdit={this.props.dogToEdit} 
+                handleEditDog={this.props.handleEditDog}
                     />
             </div>
         )

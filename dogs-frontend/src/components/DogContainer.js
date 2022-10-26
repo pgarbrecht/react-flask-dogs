@@ -58,7 +58,10 @@ class DogContainer extends Component {
                 </div>
         )} else {
             return(
-                <EditDogForm />
+                <EditDogForm
+                idOfDogToEdit = {this.state.idOfDogToEdit}
+                dogCurrentlyBeingEdited = {this.state.dogCurrentlyBeingEdited}
+                />
             )
         }
     }

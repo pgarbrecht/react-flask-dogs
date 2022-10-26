@@ -39,7 +39,7 @@ class EditDogForm extends Component {
                 <input
                     id='name'
                     type='text'
-                    // defaultValue={this.state.name}
+                    defaultValue={this.props.dogCurrentlyBeingEdited.name}
                     onChange={this.handleChange}
                     placeholder='name'
                 >
@@ -47,7 +47,7 @@ class EditDogForm extends Component {
                 <input
                     id='age'
                     type='text'
-                    // defaultValue={this.props.dogToEdit.age}
+                    defaultValue={this.props.dogCurrentlyBeingEdited.age}
                     onChange={this.handleChange}
                     placeholder='age'
                 >
@@ -55,7 +55,7 @@ class EditDogForm extends Component {
                 <input
                     id='breed'
                     type='text'
-                    // defaultValue={this.props.dogToEdit.breed}
+                    defaultValue={this.props.dogCurrentlyBeingEdited.breed}
                     onChange={this.handleChange}
                     placeholder='breed'
                 >

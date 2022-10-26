@@ -97,6 +97,7 @@ class App extends Component {
                 path='/'
                 element={<DogContainer
                   dogs={this.state.dogs} 
+                  dogToEdit={this.state.dogToEdit} 
                   handleDeleteDog={this.handleDeleteDog} />}
             />
             <Route 
@@ -106,8 +107,8 @@ class App extends Component {
             <Route 
                 path='/edit'
                 element={<EditDog 
-                dogToEdit={this.state.dogToEdit} 
-                handleEditDog={this.handleEditDog} />}
+                  dogToEdit={this.state.dogToEdit} 
+                  handleEditDog={this.handleEditDog} />}
             />
         </Routes>
     </Router>

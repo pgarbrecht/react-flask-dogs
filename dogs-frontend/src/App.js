@@ -35,14 +35,22 @@ class App extends Component {
         }
     })
     .then((data) => {    
-        console.log('here is the data we grab: ');
-        console.log(data);
+        // console.log('here is the data we grab: ');
+        // console.log(data);
         this.setState({
             // grabbing data from db and updating state when components mount
             dogs: data.data
         })        
     });
-}
+  }
+
+  handleDeleteDog = (id) => {
+    fetch(`${baseURL}${id}`, {
+    method: 'DELETE'
+    }).then( response => {
+    }).then(
+      window.location.href='http://localhost:3000/')
+  }
 
   //runs when component mounts
   componentDidMount() {
@@ -60,6 +68,7 @@ class App extends Component {
                 path='/'
                 element={<DogContainer
                   dogs={this.state.dogs} 
+                  handleDeleteDog={this.handleDeleteDog} 
                 />}
             />
             <Route 

@@ -14,7 +14,7 @@ from playhouse.shortcuts import model_to_dict
 #second arg is its import_name
 dogs = Blueprint('dogs', 'dogs')
 
-#index route
+# Index route
 @dogs.route('/', methods=['GET'])
 def dogs_index():
     all_dogs = models.Dog.select()
@@ -34,7 +34,7 @@ def dogs_index():
         'status': 200
     }), 200
 
-# dog create route
+# Create route
 @dogs.route('/', methods=['POST'])
 def create_dogs():
     #this is like req.body in express
@@ -67,7 +67,7 @@ def get_one_dog(id):
         status = 200
     ), 200
 
-#Update route
+# Update route
 @dogs.route('/<id>', methods=['PUT'])
 def update_dog(id):
     payload = request.get_json()
@@ -79,6 +79,7 @@ def update_dog(id):
         message='resource updated successfully'
     ), 200
 
+# Delete route
 @dogs.route('/<id>', methods=['DELETE'])
 def delete_dog(id):
     query = models.Dog.delete().where(models.Dog.id == id)

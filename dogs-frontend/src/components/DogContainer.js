@@ -15,7 +15,9 @@ class DogContainer extends Component {
                         key={index}
                         name={dog.name}
                         age={dog.age}
-                        breed={dog.breed}  
+                        breed={dog.breed}
+                        id={dog.id}  
+                        handleDeleteDog = {this.props.handleDeleteDog}
                         />  
                     )
                 })}

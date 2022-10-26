@@ -21,13 +21,7 @@ class App extends Component {
         name: "",
         age: 0,
         breed: ""
-      }],
-      dogToEdit: {
-        id: -1,
-        name: "placeholder",
-        age: 0,
-        breed: "placeholder"
-      }
+      }]
     }
   }
 

@@ -8,9 +8,23 @@ class DogContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            idOfDogToEdit: -1
+            idOfDogToEdit: -1,
+            dogCurrentlyBeingEdited: null
         }
     }
+
+    editDog = (id) => {
+        console.log('editDog is: ',id)
+
+        let dogToEdit = this.props.dogs.find(dog => dog.id === id)
+
+        console.log('dogToEdit: ',dogToEdit)
+        console.log('this.state is: ',this.state)
+        this.setState({ 
+            dogCurrentlyBeingEdited: dogToEdit
+        })
+        console.log('dogCurrentlyBeingEdited is: ',this.state.dogCurrentlyBeingEdited)
+      }
 
     updateIdOfDogToEdit = (id) => {
         this.setState({ 
@@ -34,7 +48,7 @@ class DogContainer extends Component {
                         breed={dog.breed}
                         id={dog.id}  
                         handleEditDog = {this.props.handleEditDog}
-                        editDog={this.props.editDog} 
+                        editDog={this.editDog} 
                         dogToEdit={this.props.dogToEdit} 
                         handleDeleteDog = {this.props.handleDeleteDog}
                         updateIdOfDogToEdit = {this.updateIdOfDogToEdit}

@@ -66,3 +66,15 @@ def get_one_dog(id):
         message = 'Success!',
         status = 200
     ), 200
+
+#Update route
+@dogs.route('/<id>', methods=['PUT'])
+def update_dog(id):
+    payload = request.get_json()
+    query = models.Dog.update(**payload).where(models.Dog.id == id)
+    query.execute()
+    return jsonify(
+        data = model_to_dict(models.Dog.get_by_id(id)),
+        status=200,
+        message='resource updated successfully'
+    ), 200

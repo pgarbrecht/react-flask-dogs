@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import '../index.css'
 import AddDogBtn from './AddDogBtn'
-import EditBtn from './EditBtn';
 import DogList from './DogList'
+import EditDogForm from './EditDogForm'
 
 class DogContainer extends Component {
     constructor(props) {
@@ -20,6 +20,7 @@ class DogContainer extends Component {
     }
 
     render() {
+        if(this.state.idOfDogToEdit === -1) {
         return(
                 <div>
                 <AddDogBtn/>
@@ -41,7 +42,11 @@ class DogContainer extends Component {
                     )
                 })}
                 </div>
-        )
+        )} else {
+            return(
+                <EditDogForm />
+            )
+        }
     }
 }
 

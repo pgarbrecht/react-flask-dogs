@@ -6,16 +6,16 @@ class EditDogForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: this.props.dogToEdit.name,
-            age: this.props.dogToEdit.age,
-            breed: this.props.dogToEdit.breed
+            // name: this.props.dogToEdit.name,
+            // age: this.props.dogToEdit.age,
+            // breed: this.props.dogToEdit.breed
         }
     }
 
     updateDog = () => {
-        this.state.name = this.props.dogs.name
-        this.state.age = this.props.dogs.age
-        this.state.breed = this.props.dogs.breed
+        // this.state.name = this.props.dogs.name
+        // this.state.age = this.props.dogs.age
+        // this.state.breed = this.props.dogs.breed
     }
 
     handleChange = (e) => {
@@ -34,11 +34,12 @@ class EditDogForm extends Component {
         console.log(dogId)
         return (
             <>
+                <h2>Edit Your Doggie</h2>
                 <form onSubmit={this.props.handleEditDog} >
                 <input
                     id='name'
                     type='text'
-                    defaultValue={this.state.name}
+                    // defaultValue={this.state.name}
                     onChange={this.handleChange}
                     placeholder='name'
                 >
@@ -46,7 +47,7 @@ class EditDogForm extends Component {
                 <input
                     id='age'
                     type='text'
-                    defaultValue={this.props.dogToEdit.age}
+                    // defaultValue={this.props.dogToEdit.age}
                     onChange={this.handleChange}
                     placeholder='age'
                 >
@@ -54,7 +55,7 @@ class EditDogForm extends Component {
                 <input
                     id='breed'
                     type='text'
-                    defaultValue={this.props.dogToEdit.breed}
+                    // defaultValue={this.props.dogToEdit.breed}
                     onChange={this.handleChange}
                     placeholder='breed'
                 >

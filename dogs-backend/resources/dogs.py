@@ -78,3 +78,13 @@ def update_dog(id):
         status=200,
         message='resource updated successfully'
     ), 200
+
+@dogs.route('/<id>', methods=['DELETE'])
+def delete_dog(id):
+    query = models.Dog.delete().where(models.Dog.id == id)
+    query.execute()
+    return jsonify(
+        data ='resource successfully deleted',
+        message='resource successfully deleted',
+        status=200
+    ), 200

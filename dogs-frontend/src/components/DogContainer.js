@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../index.css'
 import AddDogBtn from './AddDogBtn'
+import EditBtn from './EditBtn';
 import DogList from './DogList'
 
 class DogContainer extends Component {
@@ -17,6 +18,7 @@ class DogContainer extends Component {
                         age={dog.age}
                         breed={dog.breed}
                         id={dog.id}  
+                        handleEditDog = {this.props.handleEditDog}
                         handleDeleteDog = {this.props.handleDeleteDog}
                         />  
                     )

@@ -2,7 +2,7 @@ import './App.css';
 import React, {Component} from 'react'
 import DogContainer from './components/DogContainer'
 import DogNewForm from './components/DogNewForm'
-import AddDogBtn from './components/AddDogBtn'
+import EditDog from './components/EditDog'
 
 import {
   BrowserRouter as Router,
@@ -21,7 +21,12 @@ class App extends Component {
         name: "",
         age: 0,
         breed: ""
-      }]
+      }],
+      dogToEdit: {
+        name: "",
+        age: 0,
+        breed: ""
+      }
     }
   }
 
@@ -47,9 +52,38 @@ class App extends Component {
   handleDeleteDog = (id) => {
     fetch(`${baseURL}${id}`, {
     method: 'DELETE'
-    }).then( response => {
     }).then(
       window.location.href='http://localhost:3000/')
+  }
+
+  // handleEditDog = (e, dog) => {
+  //   e.preventDefault()
+  //   console.log('hitting handleEditDog in App.js!')
+  //   console.log(dog)
+  // }
+
+  handleEditDog = (id) => {
+    // e.preventDefault()
+    fetch(`${baseURL}${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            name: this.state.dogToEdit.name,
+            age: this.state.dogToEdit.age,
+            breed: this.state.dogToEdit.breed
+        }),
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+    })
+    .then(res => {
+        if (res.ok) {
+            return res.json()
+        } throw new Error(res)
+    })
+    .then(resJson => {
+        window.location.href='http://localhost:3000/';
+    })
+    .catch(err => (console.log(err))) 
   }
 
   //runs when component mounts
@@ -68,12 +102,17 @@ class App extends Component {
                 path='/'
                 element={<DogContainer
                   dogs={this.state.dogs} 
-                  handleDeleteDog={this.handleDeleteDog} 
-                />}
+                  handleEditDog={this.handleEditDog}
+                  handleDeleteDog={this.handleDeleteDog} />}
             />
             <Route 
                 path='/new'
                 element={<DogNewForm />}
+            />
+            <Route 
+                path='/edit'
+                element={<EditDog 
+                handleEditDog={this.handleEditDog} />}
             />
         </Routes>
     </Router>

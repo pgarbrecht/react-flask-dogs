@@ -33,6 +33,15 @@ class DogContainer extends Component {
         console.log('updateIdOfDogToEdit is: ', this.state.idOfDogToEdit)
     }
 
+    handleEditChange = (e) => {
+        this.setState({
+            dogCurrentlyBeingEdited: {
+                [e.target.id]: e.target.value
+            }
+        })
+        console.log(this.state.dogCurrentlyBeingEdited)
+    }
+
     render() {
         if(this.state.idOfDogToEdit === -1) {
         return(
@@ -61,6 +70,7 @@ class DogContainer extends Component {
                 <EditDogForm
                 idOfDogToEdit = {this.state.idOfDogToEdit}
                 dogCurrentlyBeingEdited = {this.state.dogCurrentlyBeingEdited}
+                handleEditChange = {this.handleEditChange}
                 />
             )
         }

@@ -5,28 +5,6 @@ class EditDogForm extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            // name: this.props.dogToEdit.name,
-            // age: this.props.dogToEdit.age,
-            // breed: this.props.dogToEdit.breed
-        }
-    }
-
-    updateDog = () => {
-        // this.state.name = this.props.dogs.name
-        // this.state.age = this.props.dogs.age
-        // this.state.breed = this.props.dogs.breed
-    }
-
-    handleChange = (e) => {
-        this.setState({
-                [e.target.id]: e.target.value
-        })
-        console.log(this.state)
-    }
-    
-    componentDidMount() {
-        this.updateDog()
     }
 
     render () {
@@ -40,7 +18,7 @@ class EditDogForm extends Component {
                     id='name'
                     type='text'
                     defaultValue={this.props.dogCurrentlyBeingEdited.name}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleEditChange}
                     placeholder='name'
                 >
                 </input>
@@ -48,7 +26,7 @@ class EditDogForm extends Component {
                     id='age'
                     type='text'
                     defaultValue={this.props.dogCurrentlyBeingEdited.age}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleEditChange}
                     placeholder='age'
                 >
                 </input> 
@@ -56,7 +34,7 @@ class EditDogForm extends Component {
                     id='breed'
                     type='text'
                     defaultValue={this.props.dogCurrentlyBeingEdited.breed}
-                    onChange={this.handleChange}
+                    onChange={this.props.handleEditChange}
                     placeholder='breed'
                 >
                 </input>

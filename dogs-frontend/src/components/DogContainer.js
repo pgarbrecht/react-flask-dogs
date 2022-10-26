@@ -5,6 +5,20 @@ import EditBtn from './EditBtn';
 import DogList from './DogList'
 
 class DogContainer extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            idOfDogToEdit: -1
+        }
+    }
+
+    updateIdOfDogToEdit = (id) => {
+        this.setState({ 
+            idOfDogToEdit: id
+        })
+        console.log('updateIdOfDogToEdit is: ', this.state.idOfDogToEdit)
+    }
+
     render() {
         return(
                 <div>
@@ -22,6 +36,7 @@ class DogContainer extends Component {
                         editDog={this.props.editDog} 
                         dogToEdit={this.props.dogToEdit} 
                         handleDeleteDog = {this.props.handleDeleteDog}
+                        updateIdOfDogToEdit = {this.updateIdOfDogToEdit}
                         />  
                     )
                 })}

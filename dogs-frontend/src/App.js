@@ -58,7 +58,7 @@ class App extends Component {
   }
 
   editDog = (id) => {
-    console.log(id)
+    console.log('editDog is: ',id)
   }
 
   handleEditDog = (id) => {

@@ -13,6 +13,7 @@ class DogList extends Component {
             <h5>{this.props.breed}</h5>
             <button onClick={()=> {
                 this.props.editDog(this.props.id);
+                this.props.updateIdOfDogToEdit(this.props.id);
                 // window.location.href=`http://localhost:3000/edit?id=${this.props.id}`
                 }}
             >                

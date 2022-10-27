@@ -9,6 +9,9 @@ from flask import Blueprint, request, jsonify
 # additional tools from peewee
 from playhouse.shortcuts import model_to_dict
 
+#allows us to require auth
+from flask_login import login_required
+
 #create our blueprint
 #first arg is the blueprint name
 #second arg is its import_name
@@ -16,6 +19,8 @@ dogs = Blueprint('dogs', 'dogs')
 
 # Index route
 @dogs.route('/', methods=['GET'])
+#when below @login_required is used, must be logged in to use this route
+# @login_required
 def dogs_index():
     all_dogs = models.Dog.select()
     print('result of dog select query')

@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import DogContainer from './components/DogContainer'
 import DogNewForm from './components/DogNewForm'
 import EditDog from './components/EditDog'
+import RegisterForm from './components/RegisterForm'
 
 import {
   BrowserRouter as Router,
@@ -87,6 +88,10 @@ class App extends Component {
                   dogs={this.state.dogs} 
                   dogToEdit={this.state.dogToEdit} 
                   handleEditDog={this.handleEditDog} />}
+            />
+            <Route 
+                path='/register'
+                element={<RegisterForm />}
             />
         </Routes>
     </Router>

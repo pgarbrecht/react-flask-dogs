@@ -8,7 +8,6 @@ from playhouse.shortcuts import model_to_dict
 
 # first argument is blueprints name
 # second argument is it's import_name
-# The third argument is the url_prefix so we don't have
 # to prefix all our apis with /api/v1
 user = Blueprint('users', 'user')
 

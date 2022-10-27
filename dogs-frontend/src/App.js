@@ -4,6 +4,7 @@ import DogContainer from './components/DogContainer'
 import DogNewForm from './components/DogNewForm'
 import EditDog from './components/EditDog'
 import RegisterForm from './components/RegisterForm'
+import LoginForm from './components/LoginForm'
 
 import {
   BrowserRouter as Router,
@@ -92,6 +93,10 @@ class App extends Component {
             <Route 
                 path='/register'
                 element={<RegisterForm />}
+            />
+            <Route 
+                path='/login'
+                element={<LoginForm />}
             />
         </Routes>
     </Router>

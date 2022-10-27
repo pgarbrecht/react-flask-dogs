@@ -5,8 +5,20 @@ from peewee import *
 #datetime is built into python
 import datetime
 
+#used for user login
+from flask_login import UserMixin
+
 #we use SQLite database for development as its an easy way to set up a database stored in a file -- portable data. note we will change to postgres for live
 DATABASE = SqliteDatabase('dogs.sqlite')
+
+#define our User model
+class User(UserMixin, Model):
+    username = CharField(unique=True)
+    email = CharField(unique=True)
+    password = CharField()
+
+    class Meta:
+        database = DATABASE
 
 #define our Dog model
 class Dog(Model):
@@ -26,7 +38,7 @@ def initialize():
     # need to explicitly create tables based on our schema
     # first arg is list of tables to create
     # second arg is safe=True, which only creates tables if they don't already exist
-    DATABASE.create_tables([Dog], safe=True)
+    DATABASE.create_tables([User, Dog], safe=True)
     print('Connected to the DB and created tables if they do not already exist')
 
     #with sql, don't leave db connection open, we don't want to hog space in connection pool

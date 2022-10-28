@@ -24,6 +24,7 @@ class RegisterForm extends Component {
         e.preventDefault()
         fetch('http://localhost:8000/api/v1/user/register', {
             method: 'POST',
+            credentials: "include",
             headers: {
                 'Content-Type': 'application/json'
             },

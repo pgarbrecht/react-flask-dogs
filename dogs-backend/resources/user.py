@@ -40,6 +40,7 @@ def register():
 def login():
     payload = request.get_json()
     print('payload:', payload)
+    payload['email'] = payload['email'].lower()
     try:
         user = models.User.get(models.User.email == payload['email']) # Try to find the user by thier email
         user_dict = model_to_dict(user) # if you find the User model convert in to a dictionary so you can edit and jsonify it

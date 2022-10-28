@@ -23,6 +23,7 @@ class LoginForm extends Component {
         e.preventDefault()
         fetch('http://localhost:8000/api/v1/user/login', {
             method: 'POST',
+            credentials: "include",
             headers: {
                 'Content-Type': 'application/json'
             },

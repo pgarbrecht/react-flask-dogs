@@ -43,6 +43,7 @@ class DogContainer extends Component {
     updateDog = () => {
         fetch(`${this.props.baseURL}${this.state.idOfDogToEdit}`, {
             method: 'PUT',
+            credentials: "include", //believe we need this to tell backend PUT request allowed because user is logged in
             body: JSON.stringify({
                 name: this.state.dogCurrentlyBeingEdited.name,
                 age: this.state.dogCurrentlyBeingEdited.age,

@@ -52,6 +52,13 @@ def load_user(userid):
     except models.DoesNotExist:
         return None
 
+@app.after_request
+def after_request(response):
+    #think we need these two response headers to allow edit if logged in
+    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
+    return response
+
 #use this blueprint of the app to handle anything related to dogs
 app.register_blueprint(dogs, url_prefix='/api/v1/dogs')
 

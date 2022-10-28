@@ -19,8 +19,6 @@ dogs = Blueprint('dogs', 'dogs')
 
 # Index route
 @dogs.route('/', methods=['GET'])
-#when below @login_required is used, must be logged in to use this route
-# @login_required
 def dogs_index():
     all_dogs = models.Dog.select()
     print('result of dog select query')
@@ -74,6 +72,8 @@ def get_one_dog(id):
 
 # Update route
 @dogs.route('/<id>', methods=['PUT'])
+#when below @login_required is used, must be logged in to use this route
+@login_required
 def update_dog(id):
     payload = request.get_json()
     query = models.Dog.update(**payload).where(models.Dog.id == id)

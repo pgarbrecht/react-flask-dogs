@@ -4,9 +4,9 @@ import { Link } from "react-router-dom"
 const AddDogBtn = () => {
   return (
     <Link to='/new'>
-        <div> 
-            <p>Add a Dog</p>
-        </div>
+        <button className='add-btn'> 
+            Add a Dog
+        </button>
     </Link>
   )
 }

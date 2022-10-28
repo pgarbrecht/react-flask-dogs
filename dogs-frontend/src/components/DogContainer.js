@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import '../index.css'
 import AddDogBtn from './AddDogBtn'
+import RegisterBtn from './RegisterBtn'
+import LoginBtn from './LoginBtn'
 import DogList from './DogList'
 import EditDogForm from './EditDogForm'
 
@@ -68,6 +70,8 @@ class DogContainer extends Component {
         if(this.state.idOfDogToEdit === -1) {
         return(
                 <div>
+                <RegisterBtn/>
+                <LoginBtn/>
                 <AddDogBtn/>
                 <h2 className="doggies-section">Doggies</h2>
                 {this.props.dogs.map((dog, index) => {

@@ -56,8 +56,8 @@ class DogNewForm extends Component {
     render() {
         return(
                 <div className="newform">
-                    <h1>Add a Dog</h1>
                     <BackBtn/>
+                    <h1>Add a Dog</h1>
                     <form onSubmit={this.handleSubmit}>
                         <input
                             id='name'

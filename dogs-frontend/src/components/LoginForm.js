@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../index.css'
+import BackBtn from './BackBtn'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -54,6 +55,7 @@ class LoginForm extends Component {
     render() {
         return(
                 <div className="newform">
+                    <BackBtn/>
                     <h1>Log Into Your Account</h1>
                     <form onSubmit={this.handleSubmit}>
                         <input

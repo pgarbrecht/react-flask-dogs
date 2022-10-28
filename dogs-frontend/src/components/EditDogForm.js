@@ -11,6 +11,7 @@ class EditDogForm extends Component {
         return (
             <>
                 <h2>Edit Your Doggie</h2>
+                <p>Note: You need to register or login to do this</p>
                 <form onSubmit={this.props.updateDog} >
                 <input
                     id='name'
